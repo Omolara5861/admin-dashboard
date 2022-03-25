@@ -1,0 +1,36 @@
+
+table {
+width: 100%;
+}
+.mat-form-field {
+font-size: 14px;
+width: 100%;
+}
+
+.container{
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.wrapper {
+display: flex;
+justify-content: space-between;
+height: 80px;
+}
+
+.filter-container {
+width: 30%;
+}
+
+.filter-by-dept-container {
+width: 20%;
+align-self: center;
+}
+
+
+.btn-container button {
+padding: 0.3rem 1.5rem;
+margin: 20px;
+}
+
+

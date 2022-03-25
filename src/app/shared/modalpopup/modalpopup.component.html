@@ -1,0 +1,52 @@
+
+  <h1 mat-dialog-title>Add new Employee</h1>
+<div mat-dialog-content>
+  <form [formGroup]="employeeForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Employee's Name</mat-label>
+    <input formControlName="employeeName" matInput placeholder="Placeholder" />
+  </mat-form-field>
+
+   <mat-form-field appearance="outline">
+    <mat-label>Employee's Age</mat-label>
+    <input formControlName="age" type="number" matInput placeholder="Placeholder" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Department</mat-label>
+    <mat-select formControlName="department" name="department">
+        <mat-option value="Programming" selected> Programming</mat-option>,
+        <mat-option value="Design" selected> Design</mat-option>
+      <mat-option value="Customer Service"> Customer Service</mat-option>
+      <mat-option value="Product Management">Product Management</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Start Date</mat-label>
+    <input formControlName="date" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <label id="example-radio-group-label">Gender</label>
+  <mat-radio-group aria-label="Select an option" formControlName="gender">
+    <mat-radio-button value="male">Male</mat-radio-button>
+    <mat-radio-button value="female">Female</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Salary</mat-label>
+    <input formControlName="salary" type="number" matInput placeholder="Placeholder" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Bio</mat-label>
+    <input formControlName="bio" matInput placeholder="Placeholder"/>
+  </mat-form-field>
+</form>
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+    <button style="margin-left: 8px;" mat-raised-button color="accent" (click)="addEmployee()">{{actionBtn}}</button>
+  </div>
+</div>

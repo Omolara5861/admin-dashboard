@@ -1,0 +1,9 @@
+
+<mat-list-item role="listitem">
+  <p> {{todo.title}} &nbsp;</p>
+
+  <p
+    [ngClass]="todo.completed === true ? 'completed-color' : 'inprogress-color'"
+    title="status">{{ todo.completed === true ? 'Completed' : 'In progress'}}
+  </p>
+</mat-list-item>

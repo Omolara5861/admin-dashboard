@@ -1,0 +1,30 @@
+mat-grid-tile img {
+  max-width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+mat-grid-tile{
+  overflow: hidden;
+}
+
+mat-grid-tile img:hover{
+  transform: scale(1.1);
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.header input{
+  padding: 0.5rem 1.5rem;
+  margin-right: 20px;
+  width: 500px;
+}
+
+.header button{
+  padding: 0.3rem 1.5rem;
+}

@@ -1,0 +1,13 @@
+<div class="btn-container">
+  <button mat-raised-button color="primary"
+    [disabled]="btnStatus === btnState.loading ||
+    btnStatus === btnState.loadedAndDelaying"
+    (click)="onStateChange()"
+  >
+    {{btnText | titlecase}}
+    <span *ngIf="btnStatus === btnState.loadedAndDelaying"
+          style="margin-left: .5rem;">
+      {{countDown | number:'2.0-0'}} secs
+    </span>
+  </button>
+</div>
