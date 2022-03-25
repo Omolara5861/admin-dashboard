@@ -12,7 +12,7 @@ import { Employees } from '../model/project';
 export class ApiService {
 
   // Employees Dash Board Api Request
-  private EmployeesUrl = 'http://localhost:3000/employeeList/';
+  private EmployeesUrl = 'https://ng-admin-db.herokuapp.com/employeeList/';
 
   httpOptions = {
     headers: new HttpHeaders({
