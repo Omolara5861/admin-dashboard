@@ -18,12 +18,12 @@ p {
     margin: 0;
 }
 
-.error.mat-snack-bar-container {
-    background: #cc0000;
+.mat-mdc-snack-bar-container.error  {
+  --mdc-snackbar-container-color: #b40303 !important;
     color: white;
   }
 
-.success.mat-snack-bar-container{
-    background: green;
+  .mat-mdc-snack-bar-container.success{
+  --mdc-snackbar-container-color: rgb(3, 102, 3) !important;
     color: white;
   }
