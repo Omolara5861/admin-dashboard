@@ -17,7 +17,7 @@ export class TodosService {
   todosUrl = 'https://jsonplaceholder.typicode.com/todos';
 
   /**
-   * Header Options
+   * Setting Header Options
    */
   httpOptions = {
     headers: new HttpHeaders({
@@ -42,7 +42,7 @@ export class TodosService {
   }
 
   /**
-   * fetching todos from the api
+   * Fetch todos from @todoUrl
    */
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.todosUrl).pipe(
