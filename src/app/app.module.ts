@@ -26,7 +26,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 
 import { HomeComponent } from './pages/home/home.component';
-import { HelpComponent } from './pages/help/help.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -42,7 +41,6 @@ import { NotifierComponent } from './shared/notifier/notifier.component';
 @NgModule({
   declarations: [AppComponent,
     HomeComponent,
-    HelpComponent,
     NotFoundComponent,
     ModalpopupComponent,
     GallaryComponent,
