@@ -22,8 +22,8 @@ constructor(private snackBar: MatSnackBar) { }
         type: messageType
       },
       duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      verticalPosition: 'bottom',
       panelClass: messageType
     });
   }
