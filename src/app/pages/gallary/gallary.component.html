@@ -1,27 +1,18 @@
 <div class="header">
-  <form >
-     <input
-     type="search"
-     class="form-control"
-     name="keyword"
-     placeholder="Enter Keyword"
-     [(ngModel)]="keyword"
-   />
-   
+  <form>
+    <input type="search" class="form-control" name="keyword" placeholder="Enter Keyword" [(ngModel)]="keyword" />
 
-    <button type="submit" 
-    mat-raised-button
-    color="primary"
-    (click)="searchImages()">Search Images</button>
+
+    <button type="submit" mat-raised-button color="primary" (click)="searchImages()">Search Images</button>
   </form>
 </div>
 
 <ng-container>
- <mat-card *ngIf="imageLists">
- <mat-grid-list cols="3" rowHeight="2:1">
-   <mat-grid-tile *ngFor="let list of imageLists">
-     <img [src]="list.urls.small" [alt]="list.alt_description">
-   </mat-grid-tile>
- </mat-grid-list>
- </mat-card>
+  <mat-card *ngIf="imageLists">
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let list of imageLists">
+        <img [src]="list.urls.small" [alt]="list.alt_description">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card>
 </ng-container>
