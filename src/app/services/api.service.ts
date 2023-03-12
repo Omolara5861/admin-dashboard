@@ -11,9 +11,14 @@ import { Employees } from '../model/project';
 })
 export class ApiService {
 
-  // Employees Dash Board Api Request
+  /** Employees API URL used to create, read, update, and delete employee data. createEmployee(),
+   * getEmployees(),
+   * updateEmployee(),
+   * and deleteEmployee() functions provide the CRUD functionality for this API
+  */
   private EmployeesUrl = 'https://ng-admin-db.herokuapp.com/employeeList/';
 
+  /* Setting headers for HTTP requests **/
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -22,6 +27,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  /** Function to create new employee */
   createEmployee(data : Observable<Employees[]>) {
     return this.http.post<Employees[]>(this.EmployeesUrl, JSON.stringify(data), this.httpOptions)
     .pipe(
@@ -29,12 +35,14 @@ export class ApiService {
     )
   }
 
+  /** Function to get all employees */
   getEmployees(): Observable<Employees[]> {
     return this.http.get<Employees[]>(this.EmployeesUrl).pipe(
       catchError(this.errorHandler)
     );
   }
 
+  /** Function to update an employee */
   updateEmployee(data: any, id:number) {
       return this.http.put<Employees[]>(this.EmployeesUrl +id, JSON.stringify(data), this.httpOptions)
       .pipe(
@@ -42,6 +50,7 @@ export class ApiService {
       )
     }
 
+    /** Function to delete an employee */
   deleteEmployee(id: number) {
       return this.http.delete<Employees[]>(this.EmployeesUrl +id, this.httpOptions)
       .pipe(
@@ -49,6 +58,7 @@ export class ApiService {
       )
   }
 
+  /** Function to handle errors that may occur during the HTTP requests*/
   errorHandler(error: any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
@@ -56,10 +66,10 @@ export class ApiService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(() => new Error('test'));
+    return throwError(() => new Error('Something went wrong while making the request'));
 }
 
-  // Image Gallary Api request from Unsplash
+  /** Function to get images from Unsplash API */
 
   getImage() {
     return this.http.get<any>(
