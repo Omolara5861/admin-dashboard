@@ -20,7 +20,7 @@ const routes: Routes = [
     component: GallaryComponent,
   },
   {
-    path: 'todo',
+    path: 'todos',
     component: TodosWrapperComponent,
   },
   {
