@@ -20,8 +20,12 @@ export enum TodoStatus {
   inProgress = 'in-progress'
 }
 
-export interface Todo {
+export interface ExternalTodo {
     title: string;
     completed: boolean;
     status: TodoStatus;
+}
+export class Todo {
+    id: number = 0;
+    todo_name: string = '';
 }
