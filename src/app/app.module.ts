@@ -35,6 +35,8 @@ import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
 import { TodosComponent } from './pages/todo/todos/todos.component';
 import { ModalpopupComponent } from './shared/modalpopup/modalpopup.component';
 import { NotifierComponent } from './shared/notifier/notifier.component';
+import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.component';
+import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
 
 
 
@@ -47,7 +49,9 @@ import { NotifierComponent } from './shared/notifier/notifier.component';
     NotifierComponent,
     TodosComponent,
     TodoItemComponent,
-    TodoButtonComponent
+    TodoButtonComponent,
+    TodosWrapperComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

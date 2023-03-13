@@ -1,36 +1,39 @@
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: "Arvo", serif;
 }
 
 .container {
   text-align: center;
 }
 
-.page_404  img{ width:100%;}
+.page_404 img {
+  width: 100%;
+}
 
-.four_zero_four_bg{
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
- background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-    height: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
- }
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
 
-
- .four_zero_four_bg h1{
- font-size:80px;
- }
-
-  .four_zero_four_bg h3{
-			 font-size:80px;
-	}
-       button {
-        border-radius: 50px;
-        padding: 8px 24px;
-        font-size: 16px;
-        cursor: pointer;
-        background: #002b5c;
-        color: #fff;
-        border: none;
-        box-shadow: 0 4px 8px 0 #ccc;
-        margin: 20px;
-      }
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+button {
+  border-radius: 50px;
+  padding: 8px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #002b5c;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 8px 0 #ccc;
+  margin: 20px;
+}
