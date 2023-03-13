@@ -33,6 +33,10 @@ import { GallaryComponent } from './pages/gallary/gallary.component';
 import { ModalpopupComponent } from './shared/modalpopup/modalpopup.component';
 import { NotifierComponent } from './shared/notifier/notifier.component';
 import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.component';
+import { TodoButtonComponent } from './pages/todos-wrapper/api-todo/todo-button/todo-button.component';
+import { TodosComponent } from './pages/todos-wrapper/api-todo/todos/todos.component';
+import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
+import { TodoItemComponent } from './pages/todos-wrapper/api-todo/todo-item/todo-item.component';
 
 
 
@@ -43,7 +47,11 @@ import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.compo
     ModalpopupComponent,
     GallaryComponent,
     NotifierComponent,
-    TodosWrapperComponent
+    TodosWrapperComponent,
+    TodoButtonComponent,
+    TodosComponent,
+    TodoComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
