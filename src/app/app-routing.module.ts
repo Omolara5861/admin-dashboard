@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GallaryComponent } from './pages/gallary/gallary.component';
-import { TodosComponent } from './pages/todo/todos/todos.component';
+import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.component';
 
 const routes: Routes = [
   {
@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'todo',
-    component: TodosComponent,
+    component: TodosWrapperComponent,
   },
   {
     path: '**',

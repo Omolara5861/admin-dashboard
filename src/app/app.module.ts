@@ -30,13 +30,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { GallaryComponent } from './pages/gallary/gallary.component';
-import { TodoButtonComponent } from './pages/todo/todo-button/todo-button.component';
-import { TodoItemComponent } from './pages/todo/todo-item/todo-item.component';
-import { TodosComponent } from './pages/todo/todos/todos.component';
 import { ModalpopupComponent } from './shared/modalpopup/modalpopup.component';
 import { NotifierComponent } from './shared/notifier/notifier.component';
 import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.component';
-import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
 
 
 
@@ -47,11 +43,7 @@ import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
     ModalpopupComponent,
     GallaryComponent,
     NotifierComponent,
-    TodosComponent,
-    TodoItemComponent,
-    TodoButtonComponent,
-    TodosWrapperComponent,
-    TodoComponent
+    TodosWrapperComponent
   ],
   imports: [
     BrowserModule,
