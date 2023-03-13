@@ -31,7 +31,7 @@ export class TodosService {
    */
   errorHandling(error: HttpErrorResponse) {
     if(error.error instanceof ErrorEvent) {
-      console.error('An error occured: ', error.error.message);
+      console.error('An error occurred: ', error.error.message);
     }
 
     else {

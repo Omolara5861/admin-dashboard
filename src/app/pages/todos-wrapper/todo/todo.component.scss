@@ -1,0 +1,40 @@
+.container {
+  width: 50%;
+  height: 500px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 50px 0;
+  padding: 20px;
+}
+
+.header {
+  width: 8 0%;
+  padding: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+mat-form-field {
+  width: 70%;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card p {
+  align-self: center;
+}
+
+.header button {
+  margin-left: 10px;
+}
+
+.actions button:last-child {
+  margin-left: 5px;
+}
+
+h2, h3 {
+  margin: 15px 0;
+}

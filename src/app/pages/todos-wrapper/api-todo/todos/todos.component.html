@@ -1,8 +1,6 @@
 
-<mat-card>
-  <mat-card-title>All Todo Lists</mat-card-title>
-  <mat-card-subtitle>Title</mat-card-subtitle>
 
+  <mat-card-title>All Todo Lists</mat-card-title>
   <mat-list role="list" *ngFor="let todo of todoList">
     <app-todo-item [todo]="todo"></app-todo-item>
   </mat-list>
@@ -12,6 +10,6 @@
     (statusChange)="getBtnState($event)"
   ></app-todo-button>
   </mat-card-actions>
-</mat-card>
+
 
 

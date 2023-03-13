@@ -1,1 +1,27 @@
-<p>todo works!</p>
+<div class="container">
+  <div class="header">
+    <h2>Todo Manager</h2>
+    <div class="row">
+      <mat-form-field class="example-full-width">
+        <mat-label>Enter Todo</mat-label>
+        <input matInput placeholder="Ex. Add New Employee...">
+      </mat-form-field>
+
+      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <h3>Todos:</h3>
+  <div class="card">
+    <p>Add New Employee</p>
+    <div class="actions">
+      <button mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
