@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { Todo, BtnState } from 'src/app/model/project';
@@ -15,20 +15,19 @@ import { TodoModalComponent } from './edit-modal/todo-modal.component';
 })
 export class TodoComponent implements OnInit {
   todoForm!: FormGroup;
+  formDirective!: FormGroupDirective;
+  todo!: FormControl;
   todoObj : Todo = new Todo();
   todoArr : Todo[] = [];
 
   todoValue : string = '';
   editTodoValue : string = '';
 
-  constructor(private todoService : TodosService, public dialog: MatDialog, private formBuilder: FormBuilder) { }
+  constructor(private todoService : TodosService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.todoForm = this.formBuilder.group({todo: ['', Validators.required]});
-    this.editTodoValue = '';
-    this.todoValue = '';
-    this.todoObj = new Todo();
-    this.todoArr = [];
+    this.todo = new FormControl('', Validators.required);
+    this.todoForm = new FormGroup({todo: this.todo})
     this.getAllTodo();
 
   }
@@ -45,12 +44,13 @@ export class TodoComponent implements OnInit {
       this.todoObj.todo_name = this.todoValue;
     this.todoService.addTodo(this.todoObj).subscribe(res => {
       this.getAllTodo();
-      this.todoValue = '';
     }, err => {
       alert(err);
     })
-    }
+    this.todoForm.reset();
+    this.formDirective.resetForm();
   }
+}
 
   openTodo() {
     this.dialog.open(TodoModalComponent, {
