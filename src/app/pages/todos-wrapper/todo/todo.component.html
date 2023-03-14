@@ -2,26 +2,29 @@
   <div class="header">
     <h2>Todo Manager</h2>
     <div class="row">
-      <mat-form-field class="example-full-width">
-        <mat-label>Enter Todo</mat-label>
-        <input matInput placeholder="Ex. Add New Employee...">
-      </mat-form-field>
-
-      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-        <mat-icon>add</mat-icon>
-      </button>
+      <form >
+        <mat-form-field class="example-full-width" >
+          <mat-label>Enter Todo</mat-label>
+          <input matInput placeholder="Ex. Add New Employee..." required name="todo" [(ngModel)]="todoValue">
+        </mat-form-field>
+        <button mat-fab color="primary" (click)="addTodo()">
+          <mat-icon>add</mat-icon>
+        </button> <br>
+        <!-- <span >Todo Name is required</span> -->
+      </form>
     </div>
   </div>
   <h3>Todos:</h3>
-  <div class="card">
-    <p>Add New Employee</p>
+  <div class="card" *ngFor="let todo of todoArr">
+    <p>{{todo.todo_name }}</p>
     <div class="actions">
-      <button mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
+      <button mat-mini-fab color="accent" (click)="openTodo()">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
+      <button mat-mini-fab color="warn" (click)="deleteTodo(todo)">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
   </div>
+  <div *ngIf="todoArr.length < 1" style="display: flex; justify-content: center; align-items: center; height: 50%;">Your list is empty, click the plus button to add a todo</div>
 </div>

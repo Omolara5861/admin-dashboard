@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { Todo, BtnState } from 'src/app/model/project';
@@ -16,17 +17,18 @@ export class TodoComponent implements OnInit {
   todoObj : Todo = new Todo();
   todoArr : Todo[] = [];
 
-  addTodoValue : string = '';
+  todoValue : string = '';
   editTodoValue : string = '';
 
   constructor(private todoService : TodosService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.editTodoValue = '';
-    this.addTodoValue = '';
+    this.todoValue = '';
     this.todoObj = new Todo();
     this.todoArr = [];
     this.getAllTodo();
+
   }
   getAllTodo() {
     this.todoService.getAllTodo().subscribe(res => {
@@ -37,10 +39,10 @@ export class TodoComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoObj.todo_name = this.addTodoValue;
+    this.todoObj.todo_name = this.todoValue;
     this.todoService.addTodo(this.todoObj).subscribe(res => {
-      this.ngOnInit();
-      this.addTodoValue = '';
+      this.getAllTodo();
+      this.todoValue = '';
     }, err => {
       alert(err);
     })
@@ -54,7 +56,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(todo : Todo) {
     this.todoService.deleteTodo(todo).subscribe(res => {
-      this.ngOnInit();
+      this.getAllTodo();
     }, err => {
       alert("Failed to delete todo");
     });
