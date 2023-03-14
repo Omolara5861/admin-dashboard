@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgForm, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { Todo, BtnState } from 'src/app/model/project';
@@ -14,15 +14,17 @@ import { TodoModalComponent } from './edit-modal/todo-modal.component';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
+  todoForm!: FormGroup;
   todoObj : Todo = new Todo();
   todoArr : Todo[] = [];
 
   todoValue : string = '';
   editTodoValue : string = '';
 
-  constructor(private todoService : TodosService, public dialog: MatDialog) { }
+  constructor(private todoService : TodosService, public dialog: MatDialog, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.todoForm = this.formBuilder.group({todo: ['', Validators.required]});
     this.editTodoValue = '';
     this.todoValue = '';
     this.todoObj = new Todo();
@@ -39,13 +41,15 @@ export class TodoComponent implements OnInit {
   }
 
   addTodo() {
-    this.todoObj.todo_name = this.todoValue;
+    if(this.todoForm.valid) {
+      this.todoObj.todo_name = this.todoValue;
     this.todoService.addTodo(this.todoObj).subscribe(res => {
       this.getAllTodo();
       this.todoValue = '';
     }, err => {
       alert(err);
     })
+    }
   }
 
   openTodo() {
