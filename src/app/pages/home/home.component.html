@@ -1,5 +1,6 @@
 <div class="container" style="margin-top: 10px;">
 
+<div *ngIf="apiResponse.length > 0">
   <div class="wrapper">
 
     <div class="filter-container">
@@ -85,6 +86,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
+
+  <div *ngIf="apiResponse.length < 1" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 80vh;">
+    <p style="margin-bottom: 10px;">Oops.. No Employee data found in database</p>
+    <button mat-raised-button (click)="openDialog()">Start Adding Employees</button>
   </div>
   </div>
 
