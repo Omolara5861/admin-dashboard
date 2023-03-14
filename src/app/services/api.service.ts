@@ -16,7 +16,7 @@ export class ApiService {
    * updateEmployee(),
    * and deleteEmployee() functions provide the CRUD functionality for this API
   */
-  private EmployeesUrl = 'https://ng-admin-db.herokuapp.com/employeeList/';
+  private EmployeesUrl = 'https://admin-dashboard-server-zvu4.onrender.com/employeeList';
 
   /* Setting headers for HTTP requests **/
   httpOptions = {
@@ -44,7 +44,7 @@ export class ApiService {
 
   /** Function to update an employee */
   updateEmployee(data: any, id:number) {
-      return this.http.put<Employees[]>(this.EmployeesUrl +id, JSON.stringify(data), this.httpOptions)
+      return this.http.put<Employees[]>(this.EmployeesUrl + '/' + id, JSON.stringify(data), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -52,7 +52,7 @@ export class ApiService {
 
     /** Function to delete an employee */
   deleteEmployee(id: number) {
-      return this.http.delete<Employees[]>(this.EmployeesUrl +id, this.httpOptions)
+      return this.http.delete<Employees[]>(this.EmployeesUrl + '/' +id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
