@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Todo, BtnState } from 'src/app/model/project';
+import { BtnState, ExternalTodo } from 'src/app/model/project';
 import { TodosService } from 'src/app/services/todo.service';
 
 
@@ -14,7 +14,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   /**
    * Todos to display
    */
-  todoList!: Todo[];
+  todoList!: ExternalTodo[];
   /**
    * BehaviorSubject to manage the state between Todos and TodoButton component
    */
@@ -45,7 +45,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   loadTodos() {
     this.todosService.getTodos()
       .subscribe(
-        (res: Todo[]) => {
+        (res: ExternalTodo[]) => {
           this.todoList = res;
           this.btnState$.next(BtnState.loadedAndDelaying);
         },

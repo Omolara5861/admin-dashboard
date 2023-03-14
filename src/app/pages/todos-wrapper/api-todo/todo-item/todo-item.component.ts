@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Todo } from 'src/app/model/project';
+import { ExternalTodo } from 'src/app/model/project';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Todo } from 'src/app/model/project';
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input() todo!: Todo;
+  @Input() todo!: ExternalTodo;
 
   constructor() { }
 
