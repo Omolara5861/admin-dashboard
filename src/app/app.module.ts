@@ -35,8 +35,9 @@ import { NotifierComponent } from './shared/notifier/notifier.component';
 import { TodosWrapperComponent } from './pages/todos-wrapper/todos-wrapper.component';
 import { TodoButtonComponent } from './pages/todos-wrapper/api-todo/todo-button/todo-button.component';
 import { TodosComponent } from './pages/todos-wrapper/api-todo/todos/todos.component';
-import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
 import { TodoItemComponent } from './pages/todos-wrapper/api-todo/todo-item/todo-item.component';
+import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
+import { TodoModalComponent } from './pages/todos-wrapper/todo/edit-modal/todo-modal.component';
 
 
 
@@ -50,8 +51,9 @@ import { TodoItemComponent } from './pages/todos-wrapper/api-todo/todo-item/todo
     TodosWrapperComponent,
     TodoButtonComponent,
     TodosComponent,
+    TodoItemComponent,
     TodoComponent,
-    TodoItemComponent
+    TodoModalComponent
   ],
   imports: [
     BrowserModule,
