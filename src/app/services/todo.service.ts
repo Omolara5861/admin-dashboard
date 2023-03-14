@@ -15,7 +15,7 @@ export class TodosService {
    * @todoUrl variable stores the api endpoint
    */
   externalTodosURL = 'https://jsonplaceholder.typicode.com/todos';
-  todoURL = 'https://jsonplaceholder.typicode.com/todos';
+  todoURL = 'https://admin-dashboard-server-zvu4.onrender.com/todos';
 
   /**
    * Setting Header Options
