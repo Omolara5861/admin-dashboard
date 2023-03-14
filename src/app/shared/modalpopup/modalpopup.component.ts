@@ -26,7 +26,7 @@ export class ModalpopupComponent implements OnInit {
 
   ngOnInit(): void {
      // Initializing the employee form with required fields and validators.
-    this.employeeForm=this.formBuilder.group({
+    this.employeeForm =this.formBuilder.group({
       employeeName: ['', Validators.required],
       age: ['', Validators.required],
       department: ['', Validators.required],
@@ -87,7 +87,7 @@ export class ModalpopupComponent implements OnInit {
         },
         error: () => {
            // Displaying error notification if updating employee failed.
-          this.notifier.showNotification('Something went wrong , could not udate the employee details. Pls try again', 'OK', 'error');
+          this.notifier.showNotification('Something went wrong , could not update the employee details. Pls try again', 'OK', 'error');
         }
       })
   }
