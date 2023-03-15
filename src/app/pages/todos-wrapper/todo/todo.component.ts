@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import {  FormControl, FormGroup,  Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { Todo, BtnState } from 'src/app/model/project';
 import { TodosService } from 'src/app/services/todo.service';
 import { TodoModalComponent } from './edit-modal/todo-modal.component';
+import { NotifierService } from '../../../services/notifier.service';
 
 
 
@@ -15,14 +16,13 @@ import { TodoModalComponent } from './edit-modal/todo-modal.component';
 })
 export class TodoComponent implements OnInit {
   todoForm!: FormGroup;
-  formDirective!: FormGroupDirective;
   todo!: FormControl;
   todoObj : Todo = new Todo();
   todoArr : Todo[] = [];
 
   todoValue : string = '';
 
-  constructor(private todoService : TodosService, public dialog: MatDialog) { }
+  constructor(private todoService : TodosService, public dialog: MatDialog, private notifierService: NotifierService) { }
 
   ngOnInit(): void {
     this.todo = new FormControl('', Validators.required);
@@ -34,7 +34,7 @@ export class TodoComponent implements OnInit {
     this.todoService.getAllTodo().subscribe(res => {
       this.todoArr = res;
     }, err => {
-      alert("Unable to get list of todos");
+      this.notifierService.showNotification('Something went wrong, Could not fetch todos, pls try again', 'ok', 'error');
     });
   }
 
@@ -42,12 +42,12 @@ export class TodoComponent implements OnInit {
     if(this.todoForm.valid) {
       this.todoObj.todo_name = this.todoValue;
     this.todoService.addTodo(this.todoObj).subscribe(res => {
+      this.notifierService.showNotification('Todo added to your list successfully', 'ok', 'success');
       this.getAllTodo();
     }, err => {
-      alert(err);
+      this.notifierService.showNotification('Could not add todo, pls try again', 'ok', 'error');
     })
     this.todoForm.reset();
-    // this.formDirective.resetForm();
   }
 }
 
@@ -60,9 +60,10 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(todo : Todo) {
     this.todoService.deleteTodo(todo).subscribe(res => {
+      this.notifierService.showNotification('Todo has been deleted from your list', 'ok', 'success');
       this.getAllTodo();
     }, err => {
-      alert("Failed to delete todo");
+      this.notifierService.showNotification('Could not delete todo, pls try again', 'ok', 'error');
     });
   }
 }
