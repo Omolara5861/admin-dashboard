@@ -57,7 +57,7 @@ export class TodoModalComponent implements OnInit{
     this.taskObj.todo_name = this.todoValue;
     this.taskObj.id = this.todoData.id;
     this.todoService.editTodo( this.taskObj).subscribe(res => {
-      this.notifierService.showNotification('Todo updated Successfully', 'ok', 'success')
+      this.notifierService.showNotification('Todo has been updated Successfully', 'ok', 'success')
           this.popupRef.close('updated');
     }, err=> {
       this.notifierService.showNotification('Something went wrong, could not update todo pls try again', 'ok', 'error');
