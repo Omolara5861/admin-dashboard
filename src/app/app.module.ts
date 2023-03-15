@@ -38,6 +38,7 @@ import { TodosComponent } from './pages/todos-wrapper/api-todo/todos/todos.compo
 import { TodoItemComponent } from './pages/todos-wrapper/api-todo/todo-item/todo-item.component';
 import { TodoComponent } from './pages/todos-wrapper/todo/todo.component';
 import { TodoModalComponent } from './pages/todos-wrapper/todo/edit-modal/todo-modal.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 
 
@@ -53,7 +54,8 @@ import { TodoModalComponent } from './pages/todos-wrapper/todo/edit-modal/todo-m
     TodosComponent,
     TodoItemComponent,
     TodoComponent,
-    TodoModalComponent
+    TodoModalComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
