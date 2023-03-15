@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Todo } from '../../../../model/project';
+import { TodosService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-modal',
@@ -11,13 +15,15 @@ import { Component } from '@angular/core';
   </div>
   <mat-divider></mat-divider>
 <div mat-dialog-content>
+      <form>
       <mat-form-field class="example-full-width">
-        <input matInput name="editTodo">
+        <input matInput [(ngModel)]="todoValue">
       </mat-form-field>
 
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="updateTodo()">
         Update
       </button>
+      </form>
 </div>
   `,
   styles: [
@@ -33,6 +39,26 @@ button:last-child {
     `
   ]
 })
-export class TodoModalComponent {
+export class TodoModalComponent implements OnInit{
+  todoValue : string = '';
+  taskObj : Todo = new Todo();
 
+  constructor(@Inject(MAT_DIALOG_DATA) public todoData: Todo, private todoService : TodosService, private popupRef: MatDialogRef<TodoModalComponent>) {
+  }
+
+  ngOnInit(): void {
+    if (this.todoData) {
+      this.todoValue = this.todoData.todo_name;
+    }
+  }
+
+  updateTodo() {
+    this.taskObj.todo_name = this.todoValue;
+    this.taskObj.id = this.todoData.id;
+    this.todoService.editTodo( this.taskObj).subscribe(res => {
+          this.popupRef.close('updated');
+    }, err=> {
+      alert("Failed to update task");
+    })
+  }
 }
