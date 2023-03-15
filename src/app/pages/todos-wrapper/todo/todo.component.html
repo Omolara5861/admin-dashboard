@@ -10,7 +10,10 @@
         <button mat-fab color="primary" type="button" (click)="addTodo()">
           <mat-icon>add</mat-icon>
         </button> <br>
-        <span *ngIf="todo.invalid && (todo.dirty || todo.touched)">Todo Name is required</span>
+        <div *ngIf="todo.errors && (todo.dirty || todo.touched)">
+          <span *ngIf="todo.errors.required">Todo Name is required</span>
+          <span *ngIf="todo.errors.minlength">Todo should be at least 10 characters long</span>
+        </div>
       </form>
     </div>
   </div>

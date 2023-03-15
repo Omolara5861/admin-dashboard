@@ -25,7 +25,7 @@ export class TodoComponent implements OnInit {
   constructor(private todoService : TodosService, public dialog: MatDialog, private notifierService: NotifierService) { }
 
   ngOnInit(): void {
-    this.todo = new FormControl('', Validators.required);
+    this.todo = new FormControl('', [Validators.required, Validators.minLength(10)]);
     this.todoForm = new FormGroup({todo: this.todo})
     this.getAllTodo();
 
