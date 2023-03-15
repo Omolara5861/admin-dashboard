@@ -66,7 +66,7 @@ export class TodoComponent implements OnInit {
 
   deleteTodo(todo : Todo) {
     this.todoService.deleteTodo(todo).subscribe(res => {
-      this.notifierService.showNotification('Todo has been deleted from your list', 'ok', 'success');
+      this.notifierService.showNotification('Todo deleted successfully', 'ok', 'success');
       this.getAllTodo();
     }, err => {
       this.notifierService.showNotification('Could not delete todo, pls try again', 'ok', 'error');

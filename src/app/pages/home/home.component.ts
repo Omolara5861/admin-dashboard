@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit {
           this.dataSource.sort=this.sort;
         },
         error: (err) => {
-          this.notifier.showNotification('An error occurred while fetching the Employees', 'OK', 'error');
+          this.notifier.showNotification('An error occurred while fetching the Employee List', 'OK', 'error');
         }
       })
   }
@@ -87,11 +87,11 @@ export class HomeComponent implements OnInit {
   deleteEmployee(id: number) {
     this.api.deleteEmployee(id).subscribe({
       next: () => {
-        this.notifier.showNotification('Employee details was deleted successfully', 'OK', 'success');
+        this.notifier.showNotification('Employee details were deleted successfully', 'OK', 'success');
         this.getAllEmployees();
       },
       error: () => {
-        this.notifier.showNotification('Something went wrong, could not delete Employee. Pls try again.', 'OK', 'error');
+        this.notifier.showNotification('Something went wrong, could not delete Employee details. Pls try again.', 'OK', 'error');
       }
     })
   }
