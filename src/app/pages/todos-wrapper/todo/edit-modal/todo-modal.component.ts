@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Todo } from '../../../../model/project';
 import { TodosService } from 'src/app/services/todo.service';
+import { NotifierService } from '../../../../services/notifier.service';
 
 @Component({
   selector: 'app-todo-modal',
@@ -43,7 +44,7 @@ export class TodoModalComponent implements OnInit{
   todoValue : string = '';
   taskObj : Todo = new Todo();
 
-  constructor(@Inject(MAT_DIALOG_DATA) public todoData: Todo, private todoService : TodosService, private popupRef: MatDialogRef<TodoModalComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public todoData: Todo, private todoService : TodosService, private popupRef: MatDialogRef<TodoModalComponent>, private notifierService: NotifierService) {
   }
 
   ngOnInit(): void {
@@ -56,9 +57,10 @@ export class TodoModalComponent implements OnInit{
     this.taskObj.todo_name = this.todoValue;
     this.taskObj.id = this.todoData.id;
     this.todoService.editTodo( this.taskObj).subscribe(res => {
+      this.notifierService.showNotification('Todo updated Successfully', 'ok', 'success')
           this.popupRef.close('updated');
     }, err=> {
-      alert("Failed to update task");
+      this.notifierService.showNotification('Something went wrong, could not update todo pls try again', 'ok', 'error');
     })
   }
 }
