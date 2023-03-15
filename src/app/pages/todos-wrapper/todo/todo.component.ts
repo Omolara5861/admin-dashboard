@@ -21,7 +21,6 @@ export class TodoComponent implements OnInit {
   todoArr : Todo[] = [];
 
   todoValue : string = '';
-  editTodoValue : string = '';
 
   constructor(private todoService : TodosService, public dialog: MatDialog) { }
 
@@ -48,14 +47,15 @@ export class TodoComponent implements OnInit {
       alert(err);
     })
     this.todoForm.reset();
-    this.formDirective.resetForm();
+    // this.formDirective.resetForm();
   }
 }
 
-  openTodo() {
+  openTodo(todo: Todo) {
     this.dialog.open(TodoModalComponent, {
-      width: "40%"
-    });
+      width: "40%",
+      data: todo
+    }).afterClosed().subscribe(val => val === 'updated' ? this.getAllTodo() : '');
   }
 
   deleteTodo(todo : Todo) {
