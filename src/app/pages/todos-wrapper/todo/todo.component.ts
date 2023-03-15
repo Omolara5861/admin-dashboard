@@ -41,12 +41,18 @@ export class TodoComponent implements OnInit {
   addTodo() {
     if(this.todoForm.valid) {
       this.todoObj.todo_name = this.todoValue;
-    this.todoService.addTodo(this.todoObj).subscribe(res => {
-      this.notifierService.showNotification('Todo added to your list successfully', 'ok', 'success');
-      this.getAllTodo();
-    }, err => {
-      this.notifierService.showNotification('Could not add todo, pls try again', 'ok', 'error');
-    })
+      let todoExist = this.todoArr.find(todo => todo.todo_name === this.todoObj.todo_name);
+      if (!todoExist) {
+        this.todoService.addTodo(this.todoObj).subscribe(res => {
+          this.notifierService.showNotification('Todo added to your list successfully', 'ok', 'success');
+          this.getAllTodo();
+        }, err => {
+          this.notifierService.showNotification('Could not add todo, pls try again', 'ok', 'error');
+        })
+      }
+      else {
+        this.notifierService.showNotification('A todo with the provided name already exist in your list, pls enter a new name', 'ok', 'error')
+      }
     this.todoForm.reset();
   }
 }
