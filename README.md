@@ -1,4 +1,7 @@
 # Admin Dashboard
+[![LICENSE](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/042af43c-5e77-49b2-becd-4f25ec1df3aa/deploy-status)](https://app.netlify.com/sites/ng-admin-dashboard/deploys)
+
 
 ## Introduction
 This is an Angular-based web application that serves as an admin dashboard, comprising three separate modules: an employee management system, a gallery application that fetches images using the Unsplash API, and a todo app.
